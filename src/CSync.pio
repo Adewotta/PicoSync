@@ -1,0 +1,36 @@
+
+;Defines and Macros
+.define ClockSyncFlag 0
+.define HSyncFlag 1
+.define H_SYNC_PIN 3
+.define V_SYNC_PIN 2
+
+;------------------------------------;
+.program CSyncFix
+.wrap_target
+    ;Copy input pin to output pin
+    MOV PINS, PINS
+    MOV PINS, PINS
+    Wait 0 IRQ ClockSyncFlag
+.wrap
+
+% c-sdk {
+static inline void CSyncFix_program_init(PIO pio, uint sm, uint offset, uint inPin, uint outPin) {
+    pio_sm_config c = CSyncFix_program_get_default_config(offset);
+    
+    //Maps IN and OUT Pins, so we can read and modify the state of the pin
+    sm_config_set_in_pins (&c, inPin);
+    sm_config_set_out_pins (&c, outPin, 1);     
+    sm_config_set_set_pins (&c, outPin, 1);
+    pio_gpio_init(pio, outPin);
+
+    // Set the pin direction to output at the PIO
+    pio_sm_set_consecutive_pindirs(pio, sm, outPin, 1, true);
+
+    // Load our configuration, and jump to the start of the program
+    pio_sm_init(pio, sm, offset, &c);
+    // Set the state machine running
+    pio_sm_set_enabled(pio, sm, true);
+}
+
+%}
