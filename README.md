@@ -1,4 +1,4 @@
-PicoSync is an open source device designed to use a Raspberry Pi Pico (RP2040) to fix a common C-Sync issue, and improve compatibility between devices and monitors. In its barebones state of just the Pi Pico board, is only compatible with TTL Csync. Compatibility with 75ohm, H/V sync, and sync on Composite/Luma/Green could be added through simple external hardware.
+PicoSync is an open source device designed to use a Raspberry Pi Pico (RP2040) to fix a common C-Sync issue, and improve compatibility between devices and monitors. In its barebones state of just the Pi Pico board, it is only compatible with TTL Csync. Compatibility with 75ohm, H/V sync, and sync on Composite/Luma/Green could be added through simple external hardware.
 
 The Problem:
 
