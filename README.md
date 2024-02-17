@@ -1,9 +1,11 @@
 PicoSync is an open source device designed to use a Raspberry Pi Pico (RP2040) to fix a common C-Sync issue, and improve compatibility between devices and monitors. In its barebones state of just the Pi Pico board, is only compatible with TTL Csync. Compatibility with 75ohm, H/V sync, and sync on Composite/Luma/Green could be added through simple external hardware.
 
 The Problem:
+
 XNOR combination logic is one of the most common methods of combining Hsync and Vsync into Csync. It is utilized on many sync combiners (VGA to RGBS converters), and internally on some older game systems such as the Sega Master System and PC engine. When Horizontal Sync (H-Sync) and Vertical Sync (V-Sync) are combined using an XNOR logic, one of he horizontal pulses during the vertical blanking period is lost. This missing falling edge can cause issues on some high end monitors, such as the BVM-D9. Common symptoms of this issue include inability to sync, or significant flagging/warping at the top of the screen. For more further explination of this issue, see HD Retrovisions's "Engineering Csync Part 2" here: https://www.hdretrovision.com/blog/2019/10/10/engineering-csync-part-2-falling-short
 
 How it works:
+
 This code utilizes the Pi Pico's PIO to search for the missing falling edge, and inject a falling edge if one is missing. If the falling edge is present, the signal is passed through unaffected. 
 
 Pinout:
