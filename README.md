@@ -36,7 +36,7 @@ H/V Sync:
 
 Sync on Composite/Luma/Green:
 
--Pico Sync does not have direct compatibility with Sync on Composite/Luma/Green. To add this functionality, you will need to integrate a sync extraction circuit, such as one based on the LM1881. This would als provide compatibility with both 75ohm and TTL level csync. This circuit could also be combined with a XNOR sync combiner for near universal sync compatibility.
+-Pico Sync does not have direct compatibility with Sync on Composite/Luma/Green. To add this functionality, you will need to integrate a sync extraction circuit, such as one based on the LM1881. This would also provide compatibility with both 75ohm and TTL level C-Sync. This circuit could also be combined with a XNOR sync combiner for near universal sync compatibility.
 
 
 RC filter:
