@@ -40,12 +40,14 @@ Sync on Composite/Luma/Green:
 Credits:
 
 Adewotta - Writing the entirety of the Pico Sync code
+
 Shank - Diagnosing the issue, pitching solution, hardware testing
 
 
 Additional thanks:
 
 HD Retrovision - Excellent documentation of C-Sync issues through their aformentioned blog
+
 RadicalPlants / Trevor Rudolph - Initial brainstorming/information
 
 
