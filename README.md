@@ -13,7 +13,9 @@ This code utilizes the Pi Pico's PIO to search for the missing falling edge, and
 Pinout:
 
 Pin 1: C-Sync In
+
 Pin 2: C-Sync Out
+
 Pin 3: GND
 
 
