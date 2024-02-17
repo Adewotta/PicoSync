@@ -2,7 +2,7 @@ PicoSync is an open source device designed to use a Raspberry Pi Pico (RP2040) t
 
 The Problem:
 
-XNOR combination logic is one of the most common methods of combining Hsync and Vsync into Csync. It is utilized on many sync combiners (VGA to RGBS converters), and internally on some older game systems such as the Sega Master System and PC engine. When Horizontal Sync (H-Sync) and Vertical Sync (V-Sync) are combined using an XNOR logic, one of he horizontal pulses during the vertical blanking period is lost. This missing falling edge can cause issues on some high end monitors, such as the BVM-D9. Common symptoms of this issue include inability to sync, or significant flagging/warping at the top of the screen. For more further explination of this issue, see HD Retrovisions's "Engineering Csync Part 2" here: https://www.hdretrovision.com/blog/2019/10/10/engineering-csync-part-2-falling-short
+XNOR combination logic is one of the most common methods of combining Hsync and Vsync into Csync. It is utilized on many sync combiners (VGA to RGBS converters), and internally on some older game systems such as the Sega Master System and PC engine. When Horizontal Sync (H-Sync) and Vertical Sync (V-Sync) are combined using XNOR logic, one of he horizontal pulses during the vertical blanking period is lost. This missing falling edge can cause issues on some high end monitors, such as the BVM-D9. Common symptoms of this issue include inability to sync, or significant flagging/warping at the top of the screen. For more further explination of this issue, see HD Retrovisions's "Engineering Csync Part 2" here: https://www.hdretrovision.com/blog/2019/10/10/engineering-csync-part-2-falling-short
 
 
 How it works:
