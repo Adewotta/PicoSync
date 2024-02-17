@@ -37,6 +37,11 @@ Sync on Composite/Luma/Green:
 -Pico Sync does not have direct compatibility with Sync on Composite/Luma/Green. To add this functionality, you will need to integrate a sync extraction circuit, such as one based on the LM1881. This would als provide compatibility with both 75ohm and TTL level csync. This circuit could also be combined with a XNOR sync combiner for near universal sync compatibility.
 
 
+RC filter:
+
+The propagation delay of logic gates can result in a very short, low-amplitude artifact at the beginning/end of the Vsync period. This artifact normally does not cause issues, but can sometimes be interperted as a pulse, depending on the resolution. This normally does not manifest in visible errors, but under some circumstances, can result in jitter of the injected seration pulse when viewed on an oscilloscope. We suspect this artifact could be corrected/eleminated through a finely tuned RC filter, or other simple circuitry.
+
+
 Credits:
 
 Adewotta - Writing the entirety of the Pico Sync code
