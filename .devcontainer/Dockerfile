@@ -5,6 +5,9 @@ RUN apt-get update && apt-get -y upgrade && \
 
     # install pico SDK
     git clone https://github.com/raspberrypi/pico-sdk.git && \
+    cd pico-sdk && \
+    git submodule update --init && \
+    cd .. && \
     mv pico-sdk /usr/local/bin/pico-sdk && \
 
     # clean up
