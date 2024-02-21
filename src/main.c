@@ -19,15 +19,16 @@
 //Systick target for timing between pulses
 volatile int systickTarget = 0x00ffffff;
 volatile int timingArray[NUM_SAMPLES];
+volatile int timingArrayIndex = 0;
+volatile uint64_t timingArraySum = 0;
+volatile bool timingArrayFull = false;
+
 
 /** 
  * @brief Updates the timing array with a new sample.
  * @param sample The new timing sample to add to the array.
  */
 void updateTimingArraySample(int sample){
-    static int timingArrayIndex = 0;
-    static uint64_t timingArraySum = 0;
-    static bool timingArrayFull = false;
     timingArraySum += sample;                        // add sample's value to sum
     timingArraySum -= timingArray[timingArrayIndex]; // subtract overwritten value from sum
     timingArray[timingArrayIndex++] = sample;        // overwrite value with sample

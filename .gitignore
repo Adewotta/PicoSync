@@ -16,3 +16,4 @@ pioasm
 generated
 pico-sdk
 CSync.pio.h
+PicoSync.*
