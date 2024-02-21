@@ -14,3 +14,4 @@ _deps
 elf2uf2
 pioasm
 generated
+pico-sdk
