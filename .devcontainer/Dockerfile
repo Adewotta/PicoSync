@@ -1,3 +1,3 @@
 FROM alpine:latest
 RUN apk update && \
-    apk add bash cmake
+    apk add bash cmake git
