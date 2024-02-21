@@ -26,9 +26,14 @@ volatile int timingArray[NUM_SAMPLES];
  */
 void updateTimingArraySample(int sample){
     static int timingArrayIndex = 0;
-    timingArray[timingArrayIndex++] = sample;
+    static uint64_t timingArraySum = 0;
+    static bool timingArrayFull = false;
+    timingArraySum += sample;                        // add sample's value to sum
+    timingArraySum -= timingArray[timingArrayIndex]; // subtract overwritten value from sum
+    timingArray[timingArrayIndex++] = sample;        // overwrite value with sample
     if(timingArrayIndex == NUM_SAMPLES){
         timingArrayIndex = 0;
+        timingArrayFull = true;
     }
 }
 
@@ -37,11 +42,13 @@ void updateTimingArraySample(int sample){
  * @return The average timing value.
  */
 int getAverageTicksBetweenPulses(){
-    uint64_t sum = 0;
-    for(int i = 0; i < NUM_SAMPLES; i++){
-        sum += timingArray[i];
+    if(timingArrayFull) {
+        return timingArraySum / NUM_SAMPLES;
+    } else if(timingArrayIndex == 0) {
+        return 0;
+    } else {
+        return timingArraySum / timingArrayIndex;
     }
-    return sum / NUM_SAMPLES;
 }
 
 #define VSYNC_PRESENT true
